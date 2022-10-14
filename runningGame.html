@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="canonical" href="http://www.kjacksgames.com/robotrun">
-    <meta name="viewport" content="width=950">
+    <meta name="viewport" content="width=1000">
     <title>Robot Run!</title>
     <style>
         body{
             background-color: lightgray;
             /* color: #ff7f50af; */
         }
+        a{
+            text-decoration: none;
+        }
         .canvas{
             box-shadow: inset 2px 4px 8px; 
             border-radius: 10px;
             background-image: url("map.png");
-            background-position: 0px -200px;
-            padding: 10px; 
+            background-position: 0 -600;
         }
         #canvasContainer2{
             margin: auto;
@@ -92,7 +94,7 @@
             color: black;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
             font-weight: normal;
-            font-size: 40px; 
+            font-size: 30px; 
         }
         .gameListTextHome{
             padding: 20px;
@@ -100,7 +102,7 @@
             color: black;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
             font-weight: normal;
-            font-size: 40px; 
+            font-size: 30px; 
             position: relative; 
             top: 20px; 
         }
@@ -177,8 +179,6 @@
             <a href="index.html"><p class="gameListTextHome">Home</p></a>
                 <details class="gameListGame navDetails">
                     <summary class="gameListText" onclick="arrowChange();"><strong class="gameListText">Games <img src="homePagePics/downArrow.png" class="detailsArrow" id="detailsArrow"></strong></summary>
-                    <a href="canvasGame.html"><p class="gameListGame gameItem">Space Invasion <img src="homePagePics/shipList.png" class="listPic"></p></a>
-                    <a href="bee.html"><p class="gameListGame gameItem">Aria's Bee Game <img src="homePagePics/robotRight.png" class="listPic"></p></a>
                     <a href="triviaChallenge.html"><p class="gameListGame gameItem">Trivia <img src="homePagePics/TriviaChallenge.png" class="listPicTrivia"></p></a>
                     <a href="runningGame.html"><p class="gameListGame gameItem">Robot Run <img src="homePagePics/spaceManRun1.png" class="listPic" alt="Match"></p></a>
                 </details>
@@ -187,7 +187,7 @@
         </div>
     </div>
     <div id="canvasContainer2">
-        <canvas id="myCanvas" width="800" height="1000" class="canvas"></canvas>
+        <canvas id="myCanvas" width="975" height="500" class="canvas"></canvas>
     </div>
     <div id="button">
         <button id="startBtn">Click to Start!</button>
@@ -268,19 +268,19 @@
         detailsArrows.src = "homePagePics/downArrow.png";
     }
         let c = document.getElementById("myCanvas");
-        let ctx = c.getContext("2d");
-        let canvasItself = document.querySelector("canvas"); 
+        let ctx = c.getContext("2d"); 
         let p = {
             jumpBtn: document.querySelector("html"), 
-            ctxWidth: 800, 
-            ctxHeight: 1000,   
+            ctxWidth: 975, 
+            ctxHeight: 500,   
             timer: 0, 
             counter: 0, 
             legs: 0,
             jumpTmrCounter: 0, 
             jmpCounter: 0,
             bkgCounter: 0,
-            crateStartX: 1350, 
+            crateStartX: 1350,
+            crateStartY: 500, 
             jumpCntA: 0, 
             jumpCntB: 0,
             jumpCntC: 0,
@@ -291,7 +291,7 @@
             hoverCount: 0,
             canvas_ctxWidth: 0, 
             canvas_ctxHeight: 0, 
-            playerStart: 570,
+            playerStart: 180,
             newCrate: {},  
             date: 0,
             hightScore: 0, 
@@ -396,7 +396,7 @@
             let ranNumber1_5 =  Math.floor((Math.random() * 200) + 100); 
             let random1_4 =  Math.floor((Math.random() * 4) + 1);
             let objectNumber = Math.floor((Math.random() * 5000) + 1); 
-            p.newCrate = new Crate(enemyRobotA1, ranNumber1_5, ranNumber1_5, p.crateStartX, 875, objectNumber, p.speed); 
+            p.newCrate = new Crate(enemyRobotA1, ranNumber1_5, ranNumber1_5, p.crateStartX, p.crateStartY, objectNumber, p.speed); 
             if(random1_4 === 1){
                 p.newCrate.img = enemyRobotA1; 
             }
@@ -531,7 +531,7 @@
             }
             if(p.legs === 1){
                 set.img = spaceManRun2; 
-                set.height = 302;  
+                set.height = 302; //sets player bounce while running.
             }
             if(p.legs === 1 && p.newCrate.img === enemyRobotA2){
                 p.newCrate.img = enemyRobotA1; 
@@ -552,43 +552,43 @@
 
         let moveBackground = () => {
             if(p.bkgCounter === 0){
-                canvasItself.style.backgroundPosition = "0px -200px";
+                c.style.backgroundPosition = "0px -600px";
             }
             if(p.bkgCounter === 1){
-                canvasItself.style.backgroundPosition = "-50px -200px";
+                c.style.backgroundPosition = "-50px -600px";
             }
             if(p.bkgCounter === 2){
-                canvasItself.style.backgroundPosition = "-100px -200px";
+                c.style.backgroundPosition = "-100px -600px";
             }
             if(p.bkgCounter === 3){
-                canvasItself.style.backgroundPosition = "-150px -200px";
+                c.style.backgroundPosition = "-150px -600px";
             }
             if(p.bkgCounter === 4){
-                canvasItself.style.backgroundPosition = "-200px -200px";
+                c.style.backgroundPosition = "-200px -600px";
             }
             if(p.bkgCounter === 5){
-                canvasItself.style.backgroundPosition = "-250px -200px";
+                c.style.backgroundPosition = "-250px -600px";
             }
             if(p.bkgCounter === 6){
-                canvasItself.style.backgroundPosition = "-300px -200px";
+                c.style.backgroundPosition = "-300px -600px";
             }
             if(p.bkgCounter === 7){
-                canvasItself.style.backgroundPosition = "-350px -200px";
+                c.style.backgroundPosition = "-350px -600px";
             }
             if(p.bkgCounter === 8){
-                canvasItself.style.backgroundPosition = "-400px -200px";
+                c.style.backgroundPosition = "-400px -600px";
             }
             if(p.bkgCounter === 9){
-                canvasItself.style.backgroundPosition = "-450px -200px";
+                c.style.backgroundPosition = "-450px -600px";
             }
             if(p.bkgCounter === 10){
-                canvasItself.style.backgroundPosition = "-500px -200px";
+                c.style.backgroundPosition = "-500px -600px";
             }
             if(p.bkgCounter === 11){
-                canvasItself.style.backgroundPosition = "-550px -200px";
+                c.style.backgroundPosition = "-550px -600px";
             }
             if(p.bkgCounter === 12){
-                canvasItself.style.backgroundPosition = "-600px -200px";
+                c.style.backgroundPosition = "-600px -600px";
             }
             if(p.bkgCounter === 13){
                 p.bkgCounter = 0; 
@@ -615,11 +615,11 @@
             ctx.clearRect(0, 0, p.ctxWidth, p.ctxHeight);
             move(p.jumper);
             moveBackground(); 
-            ctx.font = "small-caps bold 45px Trebuchet MS";
+            ctx.font = "small-caps bold 25px Trebuchet MS";
             ctx.fillStyle = "#ff7f50";
             ctx.textAlign = "center";
-            ctx.fillText("Score: " + p.currentScore, 500, 328);
-            ctx.fillText(p.counterList[0] + "." + p.counterList[1] + p.counterList[2], 250, 328); 
+            ctx.fillText("Score: " + p.currentScore, 600, 100);
+            ctx.fillText("Total time: " + p.counterList[0] + "." + p.counterList[1] + p.counterList[2], 850, 100); 
             ctx.font = "small-caps bold 25px Trebuchet MS";
             ctx.fillStyle = "black";
             ctx.textAlign = "left";
@@ -653,8 +653,8 @@
             ctx.font = "small-caps bold 80px Trebuchet MS";
             ctx.fillStyle = "#ff7f50";
             ctx.textAlign = "center";
-            ctx.fillText(p.counterList[0] + "." + p.counterList[1] + p.counterList[2], 400, 300);
-            ctx.fillText("Score: " + p.currentScore, 400, 400); 
+            ctx.fillText("Time: " + p.counterList[0] + "." + p.counterList[1] + p.counterList[2], 500, 250);
+            ctx.fillText("Score: " + p.currentScore, 500, 350); 
             ctx.font = "small-caps bold 25px Trebuchet MS";
             ctx.fillStyle = "black";
             ctx.textAlign = "left";
@@ -691,8 +691,8 @@
             clearInterval(p.jumpHover);
             clearInterval(p.jumpTmrCounter);
             p.jumpBtn = document.querySelector("html");   
-            p.ctxWidth = 800; 
-            p.ctxHeight = 1000; 
+            p.ctxWidth = 975; 
+            p.ctxHeight = 500; 
             p.timer = 0; 
             p.counter = 0; 
             p.legs = 0;
@@ -710,7 +710,7 @@
             p.hoverCount = 0;
             p.canvas_ctxWidth = 0; 
             p.canvas_ctxHeight = 0; 
-            p.playerStart = 570;
+            p.playerStart = 180;
             p.newCrate = {};  
             p.date = 0;  
             p.endGameScreen = 0;
@@ -742,13 +742,16 @@
         }
 
         let firstStart = () => {
+            c.style.backgroundPosition = "0px -600px";
             ctx.clearRect(0, 0, p.ctxWidth, p.ctxHeight);
-            ctx.font = "small-caps bold 60px Trebuchet MS";
+            ctx.font = "small-caps bold 40px Trebuchet MS";
             ctx.fillStyle = "#ff7f30";
             ctx.textAlign = "center";
-            ctx.fillText("Escape the Robots!", 400, 345);
-            ctx.fillText("Tap the screen or click to jump!", 400, 445);
-            ctx.fillText("How long can you last?", 400, 545); 
+            ctx.fillText("Escape the Robots!", 500, 100);
+            ctx.fillText("Tap the screen or click", 500, 150);
+            ctx.fillText("anywhere to jump!", 500, 200);
+            ctx.fillText("How long can you last?", 500, 250); 
+            ctx.font = "small-caps bold 20px Trebuchet MS";
         }
 
         let starterScreen = () => {
@@ -780,12 +783,23 @@
             p.endGameScreen = setInterval(endScreen, 40);
         }
 
+        // let resizeCanvas = () => { //resize canvas to page size(increase pixel COUNT). 
+        //     p.canvas_ctxWidth = window.innerWidth -100;
+        //     p.canvas_ctxHeight = window.innerHeight -100;
+        //     c.width = p.ctxWidth;
+        //     c.height = p.ctxHeight;
+        //     c.style.width = ' ' + p.canvas_ctxWidth + 'px'; 
+        //     c.style.height  = ' ' + p.canvas_ctxHeight + 'px';
+        // };
+        // window.addEventListener("resize", resizeCanvas); 
+        // resizeCanvas();
+
         
-        starterScreen();
         document.getElementById("button").addEventListener("click", reset);
         p.jumpBtn.addEventListener('contextmenu', function(e){ //disable right click menu(for long click on mobile)
         e.preventDefault();
         });
+        starterScreen();
 
 
 
