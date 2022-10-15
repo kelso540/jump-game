@@ -319,7 +319,7 @@ function arrowFlipDown(){
         ctx.drawImage(set.img, set.x, set.y, set.width, set.height);
         if(p.legs === 0){
             set.img = spaceManRun1;
-            set.height = 300;
+            set.height = 150;
         }
         if(p.legs === 0 && p.newCrate.img === enemyRobotA1){
             p.newCrate.img = enemyRobotA2; 
@@ -335,7 +335,7 @@ function arrowFlipDown(){
         }
         if(p.legs === 1){
             set.img = spaceManRun2; 
-            set.height = 302; //sets player bounce while running.
+            set.height = 152; //sets player bounce while running.
         }
         if(p.legs === 1 && p.newCrate.img === enemyRobotA2){
             p.newCrate.img = enemyRobotA1; 
@@ -514,7 +514,7 @@ function arrowFlipDown(){
         p.hoverCount = 0;
         p.canvas_ctxWidth = 0; 
         p.canvas_ctxHeight = 0; 
-        p.playerStart = 180;
+        p.playerStart = 310;
         p.newCrate = {};  
         p.date = 0;  
         p.endGameScreen = 0;
@@ -529,7 +529,7 @@ function arrowFlipDown(){
         p.gamePlayerAnimation = 0;
         p.backgroundAnimation = 0;
         p.speed = 18;  
-        p.jumper = new Jumper(spaceManRun1, 100, 300, 40, p.playerStart, 0, 0);
+        p.jumper = new Jumper(spaceManRun1, 50, 150, 40, p.playerStart, 0, 0);
         p.date = new Time();
         p.newTime = p.date.time.toString().split(" "); 
         p.screenDate = p.newTime[0] + ", " + p.newTime[1] + " " + p.newTime[2];    

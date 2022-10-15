@@ -10,18 +10,17 @@ a{
     border-radius: 10px;
     background-image: url("map.png");
     background-position: 0 -600;
-    margin: auto;
 }
 #canvasContainer2{
-    margin: 70px auto;
+    margin: auto;
     border: solid 2px grey;
     background-color: darkgray;
-    text-align: center;
     border-radius: 10px;
+    text-align: center;
 }
 #button{
     text-align: center;
-    margin: 0 auto;
+    margin: 30px auto;
 }
 #startBtn{
     border: none;
@@ -31,7 +30,7 @@ a{
     box-shadow: inset 2px 4px 8px;
     background-color: firebrick;
     padding: 20px;
-    margin: 0 auto;
+    margin: auto;
     cursor: pointer;
 }
 .positionHeader{                                /*for header nav bar CSS style*/
@@ -40,7 +39,7 @@ a{
     "pos1 pos1 pos1 pos1 pos2"
     "pos3 pos3 pos3 pos3 pos3";
     align-items: center;
-    position: fixed; 
+    position: sticky; 
     right: 0; 
     left: 0;
     top: 0;
@@ -56,8 +55,17 @@ a{
 .posHeaderImg{
     width: 70%; 
     cursor: pointer; 
-    margin-bottom: 10px;
+    margin: 5px 20px;
+    font-size: medium;
+    color: firebrick; 
+    padding-bottom: 5px;
 } 
+.header{
+    font-size: x-large;     
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-bottom: 5px;
+}
 .fa-bars{
     cursor: pointer;
 }  
@@ -66,7 +74,7 @@ a{
 }
 .pos1{
     grid-area: pos1; 
-    padding: 20px 0 10px 40px;
+    padding: 10px 30px;
     text-align: start;
 } 
 .pos2{
@@ -113,20 +121,6 @@ a{
     scrollbar-width: none;  /* Firefox stops scroll bar*/ 
     z-index: 2;
 }
-.listPic{
-    height: 50px;
-    width: 50px;
-    position: relative;
-    top: 10px;
-    left: 10px;
-} 
-.listPicTrivia{
-    height: 50px;
-    width: 100px; 
-    position: relative;
-    top: 10px;
-    left: 10px;
-} 
 .hiddenMenu::-webkit-scrollbar { /*hides the scroll bar on selected element.*/
     display: none;
 }
@@ -153,4 +147,12 @@ details > summary::-webkit-details-marker { /*gets rid of the details list arrow
 .questions{
     position: relative;
     bottom: 10px;
+}
+.hourglass{
+    padding-left: 20px;
+    color: firebrick;
+}
+.robot{
+    padding-left: 20px;
+    color: firebrick;
 }
