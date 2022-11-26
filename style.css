@@ -150,7 +150,7 @@ details > summary::-webkit-details-marker { /*gets rid of the details list arrow
 }
 .hourglass{
     padding-left: 20px;
-    color: firebrick;
+    color: darkslategray;
 }
 .robot{
     padding-left: 20px;
