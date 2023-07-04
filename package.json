@@ -1,0 +1,15 @@
+{
+  "name": "jump-game",
+  "version": "1.0.0",
+  "description": "An HTML canvas game that never ends",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "jump-game"
+  },
+  "author": "Kelsey Jackson",
+  "license": "ISC"
+}
