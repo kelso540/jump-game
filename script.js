@@ -1,3 +1,34 @@
+    document.getElementById('root').innerHTML = `<div id="canvasContainer2">
+        <div class="logoDiv">
+            <h2>ROBOT RUN!</h2>
+            <img src="./images/icons8-robot-96.png" alt="robot" id="robotPicA"/>
+        </div>
+        <canvas id="myCanvas" width="350" height="600"></canvas>
+        <div class="logoDiv">
+            <img src="./images/icons8-robot-96.png" alt="robot" id="robotPicB" />
+            <h2>ROBOT RUN!</h2>
+        </div>
+    </div>
+    <div id="button">
+        <a id="startBtn">Click to Start!</a>
+        <a id="jumpBtn">Jump</a>
+    </div>`; 
+
+    setInterval(()=>{
+        document.querySelector('#robotPicA').src = './images/icons8-broken-robot-96.png'; 
+        setTimeout(()=>{
+            document.querySelector('#robotPicA').src = './images/icons8-robot-96.png';
+        }, 500)
+    }, 4000)
+
+    setInterval(()=>{
+        document.querySelector('#robotPicB').src = './images/icons8-broken-robot-96.png'; 
+        setTimeout(()=>{
+            document.querySelector('#robotPicB').src = './images/icons8-robot-96.png';
+        }, 700)
+    }, 6000)
+
+    
     let c = document.getElementById("myCanvas");
     let ctx = c.getContext("2d"); 
     let p = {
