@@ -1,76 +1,3 @@
-var hideYesNo = false; 
-var menuHide = false; 
-var navMenu = document.getElementById("positionHeader");
-var hiddenMenu = document.getElementById("hiddenMenu"); 
-var threeLineMenu = document.getElementById("threeLines"); 
-var detailsArrows = document.getElementById("detailsArrow");
-function hideMenu(){
-    menuHide = !menuHide;    
-    if(menuHide === false){  
-        fadeOUT1();
-    }
-    if(menuHide === true){
-        fadeIN1();
-    }
-}
-function fadeIN1(){
-    threeLineMenu.className = "fa-solid fa-x fa-2x";
-    hiddenMenu.style.display = "flex";
-    hiddenMenu.style.opacity = "25%";
-    hiddenMenu.style.height = "100px";
-    setTimeout(fadeIN2, 40);
-}
-function fadeIN2(){
-    hiddenMenu.style.opacity = "50%";
-    hiddenMenu.style.height = "200px";
-    setTimeout(fadeIN3, 40);
-}
-function fadeIN3(){
-    hiddenMenu.style.opacity = "75%";
-    hiddenMenu.style.height = "300px";
-    setTimeout(fadeIN4, 40);
-}
-function fadeIN4(){
-    hiddenMenu.style.opacity = "100%";
-    hiddenMenu.style.height = "400px";
-}
-function fadeOUT1(){
-    threeLineMenu.className = "fa-solid fa-bars fa-2x";
-    hiddenMenu.style.opacity = "75%";
-    hiddenMenu.style.height = "300px";
-    setTimeout(fadeOUT2, 40);
-}
-function fadeOUT2(){
-    hiddenMenu.style.opacity = "50%";
-    hiddenMenu.style.height = "200px";
-    setTimeout(fadeOUT3, 40);
-}
-function fadeOUT3(){
-    hiddenMenu.style.opacity = "25%";
-    hiddenMenu.style.height = "100px";
-    setTimeout(fadeOUT4, 40);
-}
-function fadeOUT4(){
-    hiddenMenu.style.opacity = "0%";
-    hiddenMenu.style.display = "none";
-}
-function arrowChange(){
-    hideYesNo = !hideYesNo; 
-    if (hideYesNo === true){
-        detailsArrows.className = "fa-solid fa-arrow-right";
-        setTimeout(arrowFlipUp, 50); 
-    }
-    if (hideYesNo === false){
-        detailsArrows.className = "fa-solid fa-arrow-right";
-        setTimeout(arrowFlipDown, 50);
-    }
-}
-function arrowFlipUp(){
-    detailsArrows.className = "fa-solid fa-arrow-up";
-} 
-function arrowFlipDown(){
-    detailsArrows.className = "fa-solid fa-arrow-down";
-}
     let c = document.getElementById("myCanvas");
     let ctx = c.getContext("2d"); 
     let p = {
@@ -114,9 +41,6 @@ function arrowFlipDown(){
         screenDate: 0,
         speed: 10,  
     };    
-
-
-
 
     let spaceManRun1 = new Image();
     spaceManRun1.src = "jumpPictures/spaceManRun1.png";
@@ -538,7 +462,7 @@ function arrowFlipDown(){
         p.gamePlayerAnimation = setInterval(playerLegMovementSpeed, 300);
         p.backgroundAnimation = setInterval(backgroundMovementCounter, 90);
         document.getElementById("startBtn").style.display = "none";
-        document.getElementById("jumpBtn").style.display = "block";
+        document.getElementById("jumpBtn").style.display = "inline";
         ctx.font = "30px Arial";
         ctx.textAlign = "center";
         ctx.fillStyle = "#ff7f50"; 
@@ -584,7 +508,7 @@ function arrowFlipDown(){
         }
         p.jumper.img = robotFail; 
         removeJumpToButtons(); 
-        document.getElementById("startBtn").style.display = "block";
+        document.getElementById("startBtn").style.display = "inline";
         document.getElementById("jumpBtn").style.display = "none"; 
         p.endGameScreen = setInterval(endScreen, 40);
     }
@@ -600,9 +524,6 @@ function arrowFlipDown(){
     // window.addEventListener("resize", resizeCanvas); 
     // resizeCanvas();
 
-    
     document.getElementById("startBtn").addEventListener("click", reset);
-    // p.jumpBtn.addEventListener('contextmenu', function(e){ //disable right click menu(for long click on mobile)
-    // e.preventDefault();
-    // });
+
     starterScreen();
