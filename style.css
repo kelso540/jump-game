@@ -36,6 +36,17 @@ a{
     margin: auto;
     cursor: pointer;
 }
+#jumpBtn{
+    border: none;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 8px;
+    box-shadow: inset 2px 4px 8px;
+    background-color: firebrick;
+    padding: 20px;
+    margin: auto;
+    cursor: pointer;
+}
 .positionHeader{                                /*for header nav bar CSS style*/
     display: grid;
     grid-template-areas: 
@@ -43,6 +54,7 @@ a{
     "pos3 pos3 pos3 pos3 pos3";
     align-items: center;
     position: sticky; 
+    position: -webkit-sticky;
     right: 0; 
     left: 0;
     top: 0;
@@ -158,4 +170,13 @@ details > summary::-webkit-details-marker { /*gets rid of the details list arrow
 .robot{
     padding-left: 20px;
     color: firebrick;
+}
+#jumpBtn{
+    display: none;
+}
+
+@media screen and (max-width: 750px) {
+    .header{
+        display: none;
+    }
 }

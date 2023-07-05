@@ -74,9 +74,9 @@ function arrowFlipDown(){
     let c = document.getElementById("myCanvas");
     let ctx = c.getContext("2d"); 
     let p = {
-        jumpBtn: document.querySelector("html"), 
-        ctxWidth: 975, 
-        ctxHeight: 500,   
+        jumpBtn: document.querySelector("#jumpBtn"), 
+        ctxWidth: 350, 
+        ctxHeight: 600,   
         timer: 0, 
         counter: 0, 
         legs: 0,
@@ -112,7 +112,7 @@ function arrowFlipDown(){
         gamePlayerAnimation: 0,
         backgroundAnimation: 0,
         screenDate: 0,
-        speed: 18,  
+        speed: 10,  
     };    
 
 
@@ -197,7 +197,7 @@ function arrowFlipDown(){
     };
 
     let createCrate =() => {  //crate spawn control. 
-        let ranNumber1_5 =  Math.floor((Math.random() * 200) + 100); 
+        let ranNumber1_5 =  Math.floor((Math.random() * 150) + 100); 
         let random1_4 =  Math.floor((Math.random() * 4) + 1);
         let objectNumber = Math.floor((Math.random() * 5000) + 1); 
         p.newCrate = new Crate(enemyRobotA1, ranNumber1_5, ranNumber1_5, p.crateStartX, p.crateStartY, objectNumber, p.speed); 
@@ -419,12 +419,12 @@ function arrowFlipDown(){
         ctx.clearRect(0, 0, p.ctxWidth, p.ctxHeight);
         move(p.jumper);
         moveBackground(); 
-        ctx.font = "small-caps bold 25px Trebuchet MS";
+        ctx.font = "small-caps bold 20px Trebuchet MS";
         ctx.fillStyle = "#ff7f50";
         ctx.textAlign = "center";
         ctx.fillText("Score: " + p.currentScore, 600, 100);
         ctx.fillText("Total time: " + p.counterList[0] + "." + p.counterList[1] + p.counterList[2], 850, 100); 
-        ctx.font = "small-caps bold 25px Trebuchet MS";
+        ctx.font = "small-caps bold 20px Trebuchet MS";
         ctx.fillStyle = "black";
         ctx.textAlign = "left";
         ctx.fillText(p.screenDate, 50, 47);
@@ -454,12 +454,12 @@ function arrowFlipDown(){
 
     let endScreen = () => {
         ctx.clearRect(0, 0, p.ctxWidth, p.ctxHeight);
-        ctx.font = "small-caps bold 80px Trebuchet MS";
+        ctx.font = "small-caps bold 22px Trebuchet MS";
         ctx.fillStyle = "#ff7f50";
         ctx.textAlign = "center";
-        ctx.fillText("Time: " + p.counterList[0] + "." + p.counterList[1] + p.counterList[2], 500, 250);
-        ctx.fillText("Score: " + p.currentScore, 500, 350); 
-        ctx.font = "small-caps bold 25px Trebuchet MS";
+        ctx.fillText("Time: " + p.counterList[0] + "." + p.counterList[1] + p.counterList[2], 90, 580);
+        ctx.fillText("Score: " + p.currentScore, 255, 580); 
+        ctx.font = "small-caps bold 20px Trebuchet MS";
         ctx.fillStyle = "black";
         ctx.textAlign = "left";
         ctx.fillText(p.screenDate, 50, 47);
@@ -494,9 +494,9 @@ function arrowFlipDown(){
         clearInterval(p.jumpCntC);
         clearInterval(p.jumpHover);
         clearInterval(p.jumpTmrCounter);
-        p.jumpBtn = document.querySelector("html");   
-        p.ctxWidth = 975; 
-        p.ctxHeight = 500; 
+        p.jumpBtn = document.querySelector("#jumpBtn");   
+        p.ctxWidth = 350; 
+        p.ctxHeight = 600; 
         p.timer = 0; 
         p.counter = 0; 
         p.legs = 0;
@@ -529,7 +529,7 @@ function arrowFlipDown(){
         p.gamePlayerAnimation = 0;
         p.backgroundAnimation = 0;
         p.speed = 18;  
-        p.jumper = new Jumper(spaceManRun1, 50, 150, 40, p.playerStart, 0, 0);
+        p.jumper = new Jumper(spaceManRun1, 40, 130, 40, p.playerStart, 0, 0);
         p.date = new Time();
         p.newTime = p.date.time.toString().split(" "); 
         p.screenDate = p.newTime[0] + ", " + p.newTime[1] + " " + p.newTime[2];    
@@ -537,7 +537,8 @@ function arrowFlipDown(){
         p.gameTimer = setInterval(time, 1000); 
         p.gamePlayerAnimation = setInterval(playerLegMovementSpeed, 300);
         p.backgroundAnimation = setInterval(backgroundMovementCounter, 90);
-        document.getElementById("button").style.display = "none";
+        document.getElementById("startBtn").style.display = "none";
+        document.getElementById("jumpBtn").style.display = "block";
         ctx.font = "30px Arial";
         ctx.textAlign = "center";
         ctx.fillStyle = "#ff7f50"; 
@@ -548,13 +549,13 @@ function arrowFlipDown(){
     let firstStart = () => {
         c.style.backgroundPosition = "0px -600px";
         ctx.clearRect(0, 0, p.ctxWidth, p.ctxHeight);
-        ctx.font = "small-caps bold 40px Trebuchet MS";
+        ctx.font = "small-caps bold 30px Trebuchet MS";
         ctx.fillStyle = "#ff7f30";
         ctx.textAlign = "center";
-        ctx.fillText("Escape the Robots!", 500, 100);
-        ctx.fillText("Tap the screen or click", 500, 150);
-        ctx.fillText("anywhere to jump!", 500, 200);
-        ctx.fillText("How long can you last?", 500, 250); 
+        ctx.fillText("Escape the Robots!", 180, 100);
+        ctx.fillText("Tap the screen or click", 180, 150);
+        ctx.fillText("anywhere to jump!", 180, 200);
+        ctx.fillText("How long can you last?", 180, 250); 
         ctx.font = "small-caps bold 20px Trebuchet MS";
     }
 
@@ -583,15 +584,16 @@ function arrowFlipDown(){
         }
         p.jumper.img = robotFail; 
         removeJumpToButtons(); 
-        document.getElementById("button").style.display = "block"; 
+        document.getElementById("startBtn").style.display = "block";
+        document.getElementById("jumpBtn").style.display = "none"; 
         p.endGameScreen = setInterval(endScreen, 40);
     }
 
     // let resizeCanvas = () => { //resize canvas to page size(increase pixel COUNT). 
     //     p.canvas_ctxWidth = window.innerWidth -100;
     //     p.canvas_ctxHeight = window.innerHeight -100;
-    //     c.width = p.ctxWidth;
-    //     c.height = p.ctxHeight;
+    //     // c.width = p.ctxWidth;
+    //     // c.height = p.ctxHeight;
     //     c.style.width = ' ' + p.canvas_ctxWidth + 'px'; 
     //     c.style.height  = ' ' + p.canvas_ctxHeight + 'px';
     // };
@@ -599,8 +601,8 @@ function arrowFlipDown(){
     // resizeCanvas();
 
     
-    document.getElementById("button").addEventListener("click", reset);
-    p.jumpBtn.addEventListener('contextmenu', function(e){ //disable right click menu(for long click on mobile)
-    e.preventDefault();
-    });
+    document.getElementById("startBtn").addEventListener("click", reset);
+    // p.jumpBtn.addEventListener('contextmenu', function(e){ //disable right click menu(for long click on mobile)
+    // e.preventDefault();
+    // });
     starterScreen();
