@@ -3,7 +3,7 @@
             <h2>ROBOT RUN!</h2>
             <img src="./images/icons8-robot-96.png" alt="robot" id="robotPicA"/>
         </div>
-        <canvas id="myCanvas" width="350" height="600"></canvas>
+        <canvas id="myCanvas" width="350" height="550"></canvas>
         <div class="logoDiv">
             <img src="./images/icons8-robot-96.png" alt="robot" id="robotPicB" />
             <h2>ROBOT RUN!</h2>
@@ -34,7 +34,7 @@
     let p = {
         jumpBtn: document.querySelector("#jumpBtn"), 
         ctxWidth: 350, 
-        ctxHeight: 600,   
+        ctxHeight: 550,   
         timer: 0, 
         counter: 0, 
         legs: 0,
@@ -137,16 +137,16 @@
     };
     let testHitRect = (object1, object2) => { //collision tester part one.  
         let rect1 = {
-            x: object1.x - object1.width / 2,
-            y: object1.y - object1.height / 2,
-            width: object1.width, 
-            height: object1.height
+            x: object1.x - object1.width * 10,
+            y: object1.y - object1.height * 10,
+            width: object1.width * 5, 
+            height: object1.height * 5
         }
         let rect2 = {
-            x: object2.x - object2.width / 2,
-            y: object2.y - object2.height / 2,
-            width: object2.width,
-            height: object2.height
+            x: object2.x - object2.width * 10,
+            y: object2.y - object2.height * 10,
+            width: object2.width * 5,
+            height: object2.height * 5
         }
         return testHitRectObject(rect1, rect2);
     };
@@ -412,8 +412,8 @@
         ctx.font = "small-caps bold 22px Trebuchet MS";
         ctx.fillStyle = "#ff7f50";
         ctx.textAlign = "center";
-        ctx.fillText("Time: " + p.counterList[0] + "." + p.counterList[1] + p.counterList[2], 90, 580);
-        ctx.fillText("Score: " + p.currentScore, 255, 580); 
+        ctx.fillText("Time: " + p.counterList[0] + "." + p.counterList[1] + p.counterList[2], 90, 540);
+        ctx.fillText("Score: " + p.currentScore, 255, 540); 
         ctx.font = "small-caps bold 20px Trebuchet MS";
         ctx.fillStyle = "black";
         ctx.textAlign = "left";
@@ -451,7 +451,7 @@
         clearInterval(p.jumpTmrCounter);
         p.jumpBtn = document.querySelector("#jumpBtn");   
         p.ctxWidth = 350; 
-        p.ctxHeight = 600; 
+        p.ctxHeight = 550; 
         p.timer = 0; 
         p.counter = 0; 
         p.legs = 0;
@@ -508,8 +508,8 @@
         ctx.fillStyle = "#ff7f30";
         ctx.textAlign = "center";
         ctx.fillText("Escape the Robots!", 180, 100);
-        ctx.fillText("Tap the screen or click", 180, 150);
-        ctx.fillText("anywhere to jump!", 180, 200);
+        ctx.fillText("Tap the Jump button", 180, 150);
+        ctx.fillText("to jump!", 180, 200);
         ctx.fillText("How long can you last?", 180, 250); 
         ctx.font = "small-caps bold 20px Trebuchet MS";
     }
