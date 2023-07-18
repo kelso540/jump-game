@@ -122,33 +122,13 @@
         constructor(){
             this.time = new Date(); 
         }
-    } 
+    }  
 
-    let getDistance = (entity1, entity2) => {	//return distance (number)
-        let vx = entity1.x - entity2.x;
-        let vy = entity1.y - entity2.y;
-        return Math.sqrt(vx*vx+vy*vy);
-    };       
-    let testHitRectObject = (object1, object2) => { //collision tester part two. 
+    let testHitRectObject = (object1, object2) => { //collision tester 
         return object1.x <= object2.x + object2.width
         && object2.x <= object1.x + object1.width 
         && object1.y <= object2.y + object2.height
         && object2.y <= object1.y + object1.height;
-    };
-    let testHitRect = (object1, object2) => { //collision tester part one.  
-        let rect1 = {
-            x: object1.x - object1.width * 10,
-            y: object1.y - object1.height * 10,
-            width: object1.width * 5, 
-            height: object1.height * 5
-        }
-        let rect2 = {
-            x: object2.x - object2.width * 10,
-            y: object2.y - object2.height * 10,
-            width: object2.width * 5,
-            height: object2.height * 5
-        }
-        return testHitRectObject(rect1, rect2);
     };
 
     let createCrate =() => {  //crate spawn control. 
