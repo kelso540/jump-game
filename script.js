@@ -124,11 +124,11 @@
         }
     }  
 
-    let testHitRectObject = (object1, object2) => { //collision tester 
-        return object1.x <= object2.x + object2.width
-        && object2.x <= object1.x + object1.width 
-        && object1.y <= object2.y + object2.height
-        && object2.y <= object1.y + object1.height;
+    let testHitRectObject = (jumper, crate) => { //collision tester 
+        return jumper.x <= crate.x + crate.width
+        && crate.x + 20 <= jumper.x + jumper.width 
+        && jumper.y <= crate.y + crate.height
+        && crate.y + 20 <= jumper.y + jumper.height;
     };
 
     let createCrate =() => {  //crate spawn control. 
